@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Encuestas de Software</title>
+    <!-- Ruta corregida apuntando a la carpeta styles -->
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Sistema de Encuestas de Software</h1>
+            <p>Proyecto Integrador - Semestre 1</p>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="crear-encuesta.html">Crear encuesta</a>
+                <a href="contacto.html">Contáctenos</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2>¡Bienvenido a la Plataforma!</h2>
+            <p>Este es un aplicativo web diseñado para la gestión, creación y recolección de datos a través de formularios dinámicos aplicados al desarrollo de software.</p>
+            <p>Optimiza la toma de requerimientos, evalúa la experiencia de usuario (UX/UI) y recopila el feedback de tus clientes de manera elegante y centralizada.</p>
+            
+            <a href="crear-encuesta.html" class="btn-primary">Ir al Formulario de Encuesta</a>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 - Desarrollado por Jhon Madrid</p>
+        </footer>
+    </div>
+
+</body>
+</html>
