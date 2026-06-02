@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Encuesta - Sistema de Encuestas</title>
+    <!-- Ruta apuntando a la carpeta styles -->
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
@@ -24,11 +25,13 @@
             <p>Diligencia los campos a continuación para evaluar el rendimiento del sistema y la experiencia del usuario.</p>
             
             <form action="#" method="POST" class="encuesta-form">
+                <!-- Pregunta 1: Nombre del Proyecto -->
                 <div class="form-group">
                     <label for="nombre-proyecto">Nombre del Proyecto de Software:</label>
                     <input type="text" id="nombre-proyecto" name="nombre-proyecto" required placeholder="Ej. Aplicativo Móvil Alfa">
                 </div>
 
+                <!-- Pregunta 2: Rol -->
                 <div class="form-group">
                     <label for="rol-usuario">Rol del Evaluador:</label>
                     <select id="rol-usuario" name="rol-usuario" required>
@@ -39,6 +42,7 @@
                     </select>
                 </div>
 
+                <!-- Pregunta 3: Rendimiento -->
                 <div class="form-group">
                     <label for="rendimiento">¿Cómo califica el rendimiento y velocidad del software?</label>
                     <div class="radio-group">
@@ -48,8 +52,9 @@
                     </div>
                 </div>
 
+                <!-- Pregunta 4: Interfaz Gráfica (UI/UX) -->
                 <div class="form-group">
-                    <label for="diseño-ui">¿Qué tan intuitivo y limpio le parece el diseño visual de la interfaz?</label>
+                    <label for="diseño-ui">¿Qué tan intuitivo le parece el diseño visual de la interfaz?</label>
                     <div class="radio-group">
                         <label><input type="radio" name="diseño-ui" value="Muy Intuitivo"> Muy Intuitivo</label>
                         <label><input type="radio" name="diseño-ui" value="Aceptable"> Aceptable</label>
@@ -57,6 +62,7 @@
                     </div>
                 </div>
 
+                <!-- Pregunta 5: Frecuencia de Errores (Bugs) -->
                 <div class="form-group">
                     <label for="errores-sistema">¿Con qué frecuencia ha experimentado caídas o errores (bugs) en el sistema?</label>
                     <select id="errores-sistema" name="errores-sistema" required>
@@ -67,8 +73,9 @@
                     </select>
                 </div>
 
+                <!-- Pregunta 6: Seguridad y Confianza -->
                 <div class="form-group">
-                    <label for="seguridad">¿Qué nivel de confianza tiene respecto al manejo y seguridad de los datos en la plataforma?</label>
+                    <label for="seguridad">¿Qué nivel de confianza tiene respecto al manejo y seguridad de los datos?</label>
                     <div class="radio-group">
                         <label><input type="radio" name="seguridad" value="Alto"> Alto</label>
                         <label><input type="radio" name="seguridad" value="Medio"> Medio</label>
@@ -76,6 +83,7 @@
                     </div>
                 </div>
 
+                <!-- Pregunta 7: Comentarios -->
                 <div class="form-group">
                     <label for="comentarios">Comentarios o sugerencias de mejora:</label>
                     <textarea id="comentarios" name="comentarios" rows="4" placeholder="Escriba aquí los bugs encontrados o mejoras de UX..."></textarea>
@@ -90,23 +98,19 @@
         </footer>
     </div>
 
+    <!-- JavaScript para procesar la encuesta -->
     <script>
         document.querySelector('.encuesta-form').addEventListener('submit', function(e) {
             e.preventDefault(); 
 
-            // Capturamos los datos del formulario
             const proyecto = document.getElementById('nombre-proyecto').value;
             const rol = document.getElementById('rol-usuario').value;
             const rendimiento = document.querySelector('input[name="rendimiento"]:checked')?.value || 'No especificado';
-            
-            // Nuevas variables para la alerta
             const disenoUi = document.querySelector('input[name="diseño-ui"]:checked')?.value || 'No especificado';
             const errores = document.getElementById('errores-sistema').value;
 
-            // Alerta elegante con los datos ingresados
-            alert(`✨ ¡Encuesta Guardada con Éxito! ✨\n\nProyecto: ${proyecto}\nRol: ${rol}\nRendimiento: ${rendimiento}\nDiseño UI/UX: ${disenoUi}\nErrores reportados: ${errores}\n\nGracias por registrar los datos en el Sistema.`);
+            alert(`✨ ¡Encuesta Guardada con Éxito! ✨\n\nProyecto: ${proyecto}\nRol: ${rol}\nRendimiento: ${rendimiento}\nDiseño UI/UX: ${disenoUi}\nErrores: ${errores}\n\nGracias por registrar los datos en el Sistema.`);
             
-            // Limpiamos los campos automáticamente
             this.reset();
         });
     </script>
