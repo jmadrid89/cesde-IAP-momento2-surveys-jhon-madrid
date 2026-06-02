@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Encuesta - Sistema de Encuestas</title>
-    <!-- Ruta corregida apuntando a la carpeta styles -->
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
@@ -50,6 +49,34 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="diseño-ui">¿Qué tan intuitivo y limpio le parece el diseño visual de la interfaz?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="diseño-ui" value="Muy Intuitivo"> Muy Intuitivo</label>
+                        <label><input type="radio" name="diseño-ui" value="Aceptable"> Aceptable</label>
+                        <label><input type="radio" name="diseño-ui" value="Confuso"> Confuso / Difícil</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="errores-sistema">¿Con qué frecuencia ha experimentado caídas o errores (bugs) en el sistema?</label>
+                    <select id="errores-sistema" name="errores-sistema" required>
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="Nunca">Nunca he tenido problemas</option>
+                        <option value="Raras veces">Raras veces / Errores menores</option>
+                        <option value="Frecuentemente">Frecuentemente / Bloquea el uso</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="seguridad">¿Qué nivel de confianza tiene respecto al manejo y seguridad de los datos en la plataforma?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="seguridad" value="Alto"> Alto</label>
+                        <label><input type="radio" name="seguridad" value="Medio"> Medio</label>
+                        <label><input type="radio" name="seguridad" value="Bajo"> Bajo</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="comentarios">Comentarios o sugerencias de mejora:</label>
                     <textarea id="comentarios" name="comentarios" rows="4" placeholder="Escriba aquí los bugs encontrados o mejoras de UX..."></textarea>
                 </div>
@@ -63,7 +90,6 @@
         </footer>
     </div>
 
-    <!-- Funcionalidad melita para procesar los datos sin recargar la página -->
     <script>
         document.querySelector('.encuesta-form').addEventListener('submit', function(e) {
             e.preventDefault(); 
@@ -72,10 +98,13 @@
             const proyecto = document.getElementById('nombre-proyecto').value;
             const rol = document.getElementById('rol-usuario').value;
             const rendimiento = document.querySelector('input[name="rendimiento"]:checked')?.value || 'No especificado';
-            const comentarios = document.getElementById('comentarios').value;
+            
+            // Nuevas variables para la alerta
+            const disenoUi = document.querySelector('input[name="diseño-ui"]:checked')?.value || 'No especificado';
+            const errores = document.getElementById('errores-sistema').value;
 
             // Alerta elegante con los datos ingresados
-            alert(`✨ ¡Encuesta Guardada con Éxito! ✨\n\nProyecto: ${proyecto}\nRol: ${rol}\nRendimiento: ${rendimiento}\n\nGracias por registrar los datos en el Sistema.`);
+            alert(`✨ ¡Encuesta Guardada con Éxito! ✨\n\nProyecto: ${proyecto}\nRol: ${rol}\nRendimiento: ${rendimiento}\nDiseño UI/UX: ${disenoUi}\nErrores reportados: ${errores}\n\nGracias por registrar los datos en el Sistema.`);
             
             // Limpiamos los campos automáticamente
             this.reset();
