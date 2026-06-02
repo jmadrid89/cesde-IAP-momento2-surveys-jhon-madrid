@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctenos - Sistema de Encuestas</title>
+    <!-- Ruta apuntando a tu carpeta styles -->
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Sistema de Encuestas de Software</h1>
+            <p>Soporte Técnico y Consultas</p>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="crear-encuesta.html">Crear encuesta</a>
+                <a href="contacto.html">Contáctenos</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Formulario de Contacto</h2>
+            <p>¿Tenés alguna duda, reporte de bug o sugerencia sobre la plataforma de encuestas? Escríbenos directamente.</p>
+            
+            <form action="#" method="POST" class="contacto-form">
+                <div class="form-group">
+                    <label for="nombre-contacto">Nombre Completo:</label>
+                    <input type="text" id="nombre-contacto" name="nombre-contacto" required placeholder="Ej. Jhon Madrid">
+                </div>
+
+                <div class="form-group">
+                    <label for="correo-contacto">Correo Electrónico:</label>
+                    <input type="email" id="correo-contacto" name="correo-contacto" required placeholder="correo@ejemplo.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje-contacto">Mensaje o Requerimiento:</label>
+                    <textarea id="mensaje-contacto" name="mensaje-contacto" rows="5" required placeholder="Detalla tu solicitud aquí..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Enviar Mensaje</button>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 - Desarrollado por Jhon Madrid</p>
+        </footer>
+    </div>
+
+    <!-- Funcionalidad para el formulario de contacto -->
+    <script>
+        document.querySelector('.contacto-form').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const nombre = document.getElementById('nombre-contacto').value;
+            const correo = document.getElementById('correo-contacto').value;
+
+            alert(`✉️ ¡Mensaje Recibido, ${nombre}! \n\nHemos registrado tu correo (${correo}). Nos pondremos en contacto contigo lo antes posible para resolver tu requerimiento.`);
+            
+            this.reset();
+        });
+    </script>
+</body>
+</html>
